@@ -41,7 +41,7 @@ public class __self__update__ {
                 parentValue = "";
             }
             if (x == self.length() - 1) {
-                String dataBase = __file__read__.__file__read__(parentValue);
+                String dataBase = __file__read__.__file__read__(parentValue);;
                 String value = "";
                 String updateNDB = "";
 
@@ -63,21 +63,29 @@ public class __self__update__ {
                     }
                     if (x1 == dataBase.length() - 1) {
                         if (value.equals(child)) {
+
                             if (updateNDB.equals(String.valueOf(start__tag))) {
                                 updateNDB = updateNDB + end__tag;
                                 __database__writer__.__database__writer__(parentValue, updateNDB);
                             } else {
+
                                 updateNDB = updateNDB.substring(0, updateNDB.length() - 1) + end__tag;
+
                                 __database__writer__.__database__writer__(parentValue, updateNDB);
                             }
 
-                            if (updateNDB.equals(String.valueOf(start__tag+end__tag))) {
+                            if (updateNDB.equals(start__tag+""+end__tag)) {
                                 File file = new File( parentValue + ".ndb");
                                 file.delete();
-                                __self__update__.__self__update__1(parent1.substring(0, parent1.length() - 1), parentValue);
+
+                                if (!parent1.equals(""))
+                                {
+                                    __self__update__.__self__update__1(parent1.substring(0, parent1.length() - 1), parentValue);
+                                }
                             }
 
                         } else {
+
                             updateNDB = updateNDB + value + end__tag;
                             __database__writer__.__database__writer__(parentValue, updateNDB);
                         }
@@ -138,10 +146,14 @@ public class __self__update__ {
                                 __database__writer__.__database__writer__(parentValue, updateNDB);
                             }
 
-                            if (updateNDB.equals(String.valueOf(start__tag+end__tag))) {
+                            if (updateNDB.equals(start__tag+""+end__tag)) {
                                 File file = new File( parentValue + ".ndb");
                                 file.delete();
-                                __self__update__.__self__update__(parent1.substring(0, parent1.length() - 1), parentValue);
+                                if (!parent1.equals(""))
+                                {
+                                    __self__update__.__self__update__(parent1.substring(0, parent1.length() - 1), parentValue);
+                                }
+
                             }
 
                         } else {

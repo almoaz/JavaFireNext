@@ -43,12 +43,11 @@ public class __self__child__delete__ {
             }
             if (x == self.length() - 1) {
                 File file;
-                System.out.println(parent);
                 if (!parent.equals("")) {
                     file = new File(value + ".ndb");
                     if (file.exists()) {
                         String database = __file__read__.__file__read__(value);
-                        if (database.equals(String.valueOf(start__tag+end__tag)) || database.equals("")) {
+                        if (database.equals(start__tag+""+end__tag) || database.equals("")) {
                             __self__update__.__self__update__(parent.substring(0, parent.length() - 1), value);
                             File file1 = new File( value + ".ndb");
                             file1.delete();
@@ -57,7 +56,6 @@ public class __self__child__delete__ {
                             databaseName = value;
                             value = "";
                             String childFound = "true";
-
                             for (int x1 = 0; x1 <= database.length(); x1++) {
                                 if (database.charAt(x1) != child__end__tag && database.charAt(x1) != start__tag && database.charAt(x1) != end__tag) {
                                     value = value + database.charAt(x1);
@@ -94,7 +92,7 @@ public class __self__child__delete__ {
 
                     if (file.exists()) {
                         String database = __file__read__.__file__read__(value);
-                        if (database.equals(String.valueOf(start__tag+end__tag)) || database.equals("")) {
+                        if (database.equals(start__tag+""+end__tag) || database.equals("")) {
 
                             File file1 = new File( value + ".ndb");
                             file1.delete();
@@ -164,7 +162,7 @@ public class __self__child__delete__ {
                 File file = new File(value + ".ndb");
                 if (file.exists()) {
                     String database = __file__read__.__file__read__(value);
-                    if (database.equals(String.valueOf(start__tag+end__tag)) || database.equals("")) {
+                    if (database.equals(start__tag+""+end__tag) || database.equals("")) {
                         File file1 = new File( value + ".ndb");
                         file1.delete();
                         return "true";
@@ -226,7 +224,7 @@ public class __self__child__delete__ {
                 File file = new File(value + ".ndb");
                 if (file.exists()) {
                     String database = __file__read__.__file__read__(value);
-                    if (database.equals(String.valueOf(start__tag+end__tag)) || database.equals("")) {
+                    if (database.equals(start__tag+""+end__tag) || database.equals("")) {
                         File file1 = new File(value + ".ndb");
                         file1.delete();
                         return "true";

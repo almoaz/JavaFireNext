@@ -236,7 +236,7 @@ public class NextDatabase {
            ----------------------------------------------
         */
 
-        String check = __self__check__.__self__check__(path, "child");
+        String check = __self__check__.__self__check__(path, "delete");
         if (check.equals("child"))
         {
             return "value child not found";

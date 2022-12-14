@@ -104,9 +104,7 @@ public class __self__delete__ {
                         }
                     }
                     value = "";
-
                 }
-
             }
             if (x == self.length() - 1) {
 
@@ -117,9 +115,7 @@ public class __self__delete__ {
                     } else {
                         return "'" + value + "' database not found";
                     }
-
                 }
-
                 if (value.equals("")) {
                     return "'" + databaseName + "' parent" + " child not found";
                 }
@@ -143,71 +139,12 @@ public class __self__delete__ {
                             value1 = "";
 
                         }
-                        /**if (value.charAt(x1) == devided__tag) {
-                         String readChild = "";
-                         String updateNDB = "";
-                         String childMatch = "false";
-
-                         childData = __file__read__.__file__read__(databaseName);
-
-                         for (int x2 = 0; x2 <= childData.length(); x2++) {
-                         if (childData.charAt(x2) == start__tag) {
-                         updateNDB = updateNDB + childData.charAt(x2);
-                         }
-                         if (childData.charAt(x2) != start__tag && childData.charAt(x2) != child__end__tag && childData.charAt(x2) != end__tag) {
-                         readChild = readChild + childData.charAt(x2);
-                         }
-                         if (childData.charAt(x2) == child__end__tag) {
-                         if (Objects.equals(childMatch, "null") && Objects.equals(updateNDB, String.valueOf(start__tag))) {
-                         childMatch = "true";
-                         continue;
-                         }
-                         if (Objects.equals(childMatch, "null") && !Objects.equals(updateNDB, String.valueOf(start__tag))) {
-                         childMatch = "true";
-                         } else if (childMatch.equals("false") && updateNDB.equals(String.valueOf(start__tag))) {
-                         updateNDB = updateNDB + readChild;
-                         } else if (childMatch.equals("false") && !updateNDB.equals("")) {
-                         updateNDB = updateNDB + child__end__tag + readChild;
-                         }
-
-                         readChild = "";
-
-                         }
-                         if (childData.charAt(x2) == value__child__tag && childMatch.equals("false")) {
-                         if (readChild.equals(name)) {
-                         childMatch = "null";
-                         }
-                         } else if (childMatch.equals("true")) {
-                         updateNDB = updateNDB + childData.charAt(x2);
-                         }
-                         if (childData.charAt(x2) == end__tag && x2 == childData.length() - 1) {
-                         if (childMatch.equals("true")) {
-                         __database__writer__.__database__writer__(databaseName, updateNDB);
-                         }
-
-                         if (childMatch.equals("null")) {
-                         updateNDB = updateNDB + end__tag;
-                         __database__writer__.__database__writer__(databaseName, updateNDB);
-                         }
-
-                         if (childMatch.equals("false")) {
-                         notFoundChild = notFoundChild + "'" + name + "'";
-                         }
-
-                         }
-
-
-                         }
-                         name = "";
-                         value1 = "";
-                         }*/
                         if (x1 == value.length() - 1) {
 
                             if (name.equals("")) {
                                 File file = new File(value + ".ndb");
                                 if (file.exists()) {
                                     parentDatabaseName = databaseName + ">" + value;
-
                                     return __self__child__delete__.__self__child__delete__(parentDatabaseName);
                                 } else {
                                     return "'" + value + "' child not found";
@@ -253,7 +190,7 @@ public class __self__delete__ {
                                 }
                                 if (x2 == childData.length() - 1) {
                                     if (childMatch.equals("true")) {
-                                        if (updateNDB.equals(String.valueOf(start__tag+end__tag))) {
+                                        if (updateNDB.equals(start__tag+""+end__tag)) {
                                             __database__writer__.__database__writer__(databaseName, updateNDB);
                                             if (parentDatabaseName.equals("")) {
                                                 parentDatabaseName = databaseName;
@@ -271,7 +208,7 @@ public class __self__delete__ {
                                     if (childMatch.equals("null")) {
                                         updateNDB = updateNDB + end__tag;
 
-                                        if (updateNDB.equals(String.valueOf(start__tag+end__tag))) {
+                                        if (updateNDB.equals(start__tag+""+end__tag)) {
                                             __database__writer__.__database__writer__(databaseName, updateNDB);
                                             if (parentDatabaseName.equals("")) {
                                                 parentDatabaseName = databaseName;
@@ -289,7 +226,7 @@ public class __self__delete__ {
                                     if (childMatch.equals("false")) {
                                         notFoundChild = notFoundChild + "'" + name + "'";
                                         updateNDB = childData.substring(0, childData.length() - 1) + value1 + end__tag;
-                                        if (updateNDB.equals(String.valueOf(start__tag+end__tag))) {
+                                        if (updateNDB.equals(start__tag+""+end__tag)) {
                                             __database__writer__.__database__writer__(databaseName, updateNDB);
                                             if (parentDatabaseName.equals("")) {
                                                 parentDatabaseName = databaseName;
