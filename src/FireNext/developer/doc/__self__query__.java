@@ -33,7 +33,7 @@ public class __self__query__ {
         String value = "";
         String databaseName = "";
         String parentDatabaseName = "";
-
+        ArrayList<String> query_child_name = new ArrayList<>();
         for (int x = 0; x <= self.length(); x++) {
             if ('>' != self.charAt(x)) {
                 value = value + self.charAt(x);
@@ -45,12 +45,14 @@ public class __self__query__ {
                         databaseName = value;
                         value = "";
                     } else {
-                        return null;
+                        query_child_name.add("false");
+                        return query_child_name;
                     }
                 } else {
                     String childData = __file__read__.__file__read__(databaseName);
                     if (childData.equals("")) {
-                        return null;
+                        query_child_name.add("false");
+                        return query_child_name;
                     } else {
                         String readChild = "";
                         String updateNDB = "";
@@ -75,7 +77,8 @@ public class __self__query__ {
                                         value = "";
                                         break;
                                     } else {
-                                        return null;
+                                        query_child_name.add("false");
+                                        return query_child_name;
                                     }
 
                                 }
@@ -93,11 +96,13 @@ public class __self__query__ {
                                         databaseName = value;
                                         value = "";
                                     } else {
-                                        return null;
+                                        query_child_name.add("false");
+                                        return query_child_name;
                                     }
 
                                 } else {
-                                    return null;
+                                    query_child_name.add("false");
+                                    return query_child_name;
                                 }
 
 
@@ -118,18 +123,19 @@ public class __self__query__ {
                 File file = new File(databaseName + ".ndb");
                 if (!file.exists()) {
 
-                    return null;
+                    query_child_name.add("false");
+                    return query_child_name;
                 }
 
                 String childData = __file__read__.__file__read__(databaseName);
 
                 if (childData.equals("")) {
-                    return null;
+                    query_child_name.add("false");
+                    return query_child_name;
                 } else {
                     String readChild = "";
                     String updateNDB = "";
                     String childMatch = "true";
-                    ArrayList<String> query_child_name = new ArrayList<>();
 
                     for (int x2 = 0; x2 <= childData.length(); x2++) {
                         if (childData.charAt(x2) != start__tag && childData.charAt(x2) != child__end__tag && childData.charAt(x2) != end__tag) {
@@ -184,6 +190,7 @@ public class __self__query__ {
             }
 
         }
-        return null;
+        query_child_name.add("false");
+        return query_child_name;
     }
 }

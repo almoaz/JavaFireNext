@@ -8,7 +8,7 @@ public class main {
         //print(NextDatabase.add("USER>18301>name:almoaz"));
 
         ArrayList value = new ArrayList<>();
-        value = NextDatabase.query("USER>  183001:");
+        value = NextDatabase.query("USER>  183001");
         System.out.println(value);
     }
 
