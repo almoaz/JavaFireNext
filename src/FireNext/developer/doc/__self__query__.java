@@ -45,13 +45,13 @@ public class __self__query__ {
                         databaseName = value;
                         value = "";
                     } else {
-                        query_child_name.add("false");
+                        query_child_name.add("'"+value+"' database not found");
                         return query_child_name;
                     }
                 } else {
                     String childData = __file__read__.__file__read__(databaseName);
                     if (childData.equals("")) {
-                        query_child_name.add("false");
+                        query_child_name.add("'"+value+"' database empty");
                         return query_child_name;
                     } else {
                         String readChild = "";
@@ -77,7 +77,7 @@ public class __self__query__ {
                                         value = "";
                                         break;
                                     } else {
-                                        query_child_name.add("false");
+                                        query_child_name.add("'"+value+"' database not found");
                                         return query_child_name;
                                     }
 
@@ -96,12 +96,12 @@ public class __self__query__ {
                                         databaseName = value;
                                         value = "";
                                     } else {
-                                        query_child_name.add("false");
+                                        query_child_name.add("'"+value+"' database not found");
                                         return query_child_name;
                                     }
 
                                 } else {
-                                    query_child_name.add("false");
+                                    query_child_name.add("'"+value+"' child not found");
                                     return query_child_name;
                                 }
 
@@ -123,14 +123,14 @@ public class __self__query__ {
                 File file = new File(databaseName + ".ndb");
                 if (!file.exists()) {
 
-                    query_child_name.add("false");
+                    query_child_name.add("'"+databaseName+"' database not found");
                     return query_child_name;
                 }
 
                 String childData = __file__read__.__file__read__(databaseName);
 
                 if (childData.equals("")) {
-                    query_child_name.add("false");
+                    query_child_name.add("'"+value+"' database empty");
                     return query_child_name;
                 } else {
                     String readChild = "";
@@ -173,7 +173,8 @@ public class __self__query__ {
                                 }
                             } else {
                                 if (String.valueOf(query_child_name).equals("")) {
-                                    return null;
+                                    query_child_name.add("child not found");
+                                    return query_child_name;
                                 } else {
                                     return query_child_name;
                                 }
@@ -190,7 +191,10 @@ public class __self__query__ {
             }
 
         }
-        query_child_name.add("false");
+        if (query_child_name.size() == 0)
+        {
+            query_child_name.add("child not found");
+        }
         return query_child_name;
     }
 }
