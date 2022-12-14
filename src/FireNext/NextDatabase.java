@@ -3,6 +3,7 @@ package FireNext;
 import FireNext.developer.doc.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NextDatabase {
 
@@ -57,7 +58,22 @@ public class NextDatabase {
                |     |---nationality:Bangladesh
            ----------------------------------------------
         */
-        return __self__add__.__self__add__(path);
+
+        String check = __self__check__.__self__check__(path, "add");
+        if (check.equals("child"))
+        {
+            return "value child not found";
+        }
+        if (check.equals("parent"))
+        {
+            return "parent not found";
+        }
+        if (check.equals("syntax"))
+        {
+            return "'error' "+path;
+        }
+
+        return __self__add__.__self__add__(check);
     }
     public static String read(String path)
     {
@@ -93,7 +109,16 @@ public class NextDatabase {
              |---nationality:Bangladesh
            ---------------------------------
         */
-        return __self__read__.__self__read__(path);
+        String check = __self__check__.__self__check__(path, "child");
+        if (check.equals("child"))
+        {
+            return "value child not found";
+        }
+        if (check.equals("syntax"))
+        {
+            return "'error' "+path;
+        }
+        return __self__read__.__self__read__(check);
     }
 
     public static String hasChild(String path)
@@ -118,7 +143,16 @@ public class NextDatabase {
                |     |---nationality:Bangladesh
            ----------------------------------------------
         */
-        return __self__child__.__self__child__(path);
+        String check = __self__check__.__self__check__(path, "child");
+        if (check.equals("child"))
+        {
+            return "value child not found";
+        }
+        if (check.equals("syntax"))
+        {
+            return "'error' "+path;
+        }
+        return __self__child__.__self__child__(check);
     }
 
     public static ArrayList query(String path)
@@ -151,7 +185,19 @@ public class NextDatabase {
                |     |---nationality:Bangladesh
            ----------------------------------------------
         */
-        return __self__query__.__self__query__(path);
+        ArrayList<String> returnValue = new ArrayList<>();
+        String check = __self__check__.__self__check__(path, "child");
+        if (check.equals("child"))
+        {
+            returnValue.add("value child not found");
+            return returnValue;
+        }
+        if (check.equals("syntax"))
+        {
+            returnValue.add("'error' "+path);
+            return returnValue;
+        }
+        return __self__query__.__self__query__(check);
     }
 
     public static String delete(String path)
@@ -190,8 +236,17 @@ public class NextDatabase {
            ----------------------------------------------
         */
 
+        String check = __self__check__.__self__check__(path, "child");
+        if (check.equals("child"))
+        {
+            return "value child not found";
+        }
+        if (check.equals("syntax"))
+        {
+            return "'error' "+path;
+        }
 
-        return __self__delete__.__self__delete__(path);
+        return __self__delete__.__self__delete__(check);
     }
 
 }

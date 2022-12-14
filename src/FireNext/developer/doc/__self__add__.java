@@ -26,8 +26,11 @@ import static FireNext.developer.doc.__init__.*;
 
 import java.io.File;
 
+
 public class __self__add__ {
+
     public static String __self__add__(String self) {
+
         String value = "";
         String databaseName = "";
 

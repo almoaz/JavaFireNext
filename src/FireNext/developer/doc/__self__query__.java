@@ -129,7 +129,7 @@ public class __self__query__ {
                     String readChild = "";
                     String updateNDB = "";
                     String childMatch = "true";
-                    ArrayList query_child_name = new ArrayList();
+                    ArrayList<String> query_child_name = new ArrayList<>();
 
                     for (int x2 = 0; x2 <= childData.length(); x2++) {
                         if (childData.charAt(x2) != start__tag && childData.charAt(x2) != child__end__tag && childData.charAt(x2) != end__tag) {
