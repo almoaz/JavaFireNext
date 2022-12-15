@@ -155,8 +155,7 @@ public class NextDatabase {
         return __self__child__.__self__child__(check);
     }
 
-    public static ArrayList query(String path)
-    {
+    public static ArrayList query(String path) {
         /**
            child = NextDatabase.query("USER>name:")
            output : [001,002,003]
