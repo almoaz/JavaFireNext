@@ -5,8 +5,10 @@ import java.util.ArrayList;
 public class main {
 
     public static void main(String[] args) {
-        print(NextDatabase.add("USER>18301>name:"));
-        print(NextDatabase.delete("USER>18301>name:"));
+        print(NextDatabase.add("USER>18302>name:al moaz"));
+        ArrayList child = new ArrayList();
+        child = NextDatabase.query("USER>18301>nam:");
+        print(String.valueOf(child));
     }
 
 

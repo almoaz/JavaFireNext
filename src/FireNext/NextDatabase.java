@@ -186,10 +186,15 @@ public class NextDatabase {
            ----------------------------------------------
         */
         ArrayList<String> returnValue = new ArrayList<>();
-        String check = __self__check__.__self__check__(path, "child");
+        String check = __self__check__.__self__check__(path, "query");
         if (check.equals("child"))
         {
             returnValue.add("value child not found");
+            return returnValue;
+        }
+        if (check.equals("parent"))
+        {
+            returnValue.add("parent not found");
             return returnValue;
         }
         if (check.equals("syntax"))
